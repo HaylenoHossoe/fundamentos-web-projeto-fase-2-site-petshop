@@ -1,5 +1,5 @@
 Este arquivo de ajuda descreve as funcionalidades da página web
-do petshop fictício Petnini, que foi criada em 11/09/2023, como parte de um projeto
+do petshop fictício Petnini, que foi criada em 11/09/2023 como parte de um projeto
 do aluno Hayleno Santos Hossoé para a disciplina "Fundamentos de Sistemas Web",
 do curso de Análise e Desenvolvimento de Sistemas da faculdade PUCRS.
 
