@@ -31,6 +31,7 @@
     <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
   <body class="u-body u-xl-mode" data-lang="pt">
+
     <!-- Cabeçalho da página -->
     <header class="u-clearfix u-header u-sticky u-sticky-6abf u-header" id="sec-e25f"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
         <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
@@ -118,8 +119,9 @@ o seu tempo livre juntos.
           </div>
         </div>
       </div>
-      <!-- Seção "Produtos e Serviços" -->
     </section>
+      <!-- Seção "Produtos e Serviços" -->
+    <div id="produtos">
     <section class="u-clearfix u-palette-3-light-3 u-section-3" id="sec-38a6">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-expanded-width u-list u-list-1">
@@ -213,24 +215,20 @@ porte<br>
           </div>
         </div>
         <div class="u-form u-form-1">
-          <!-- Campo de pesquisa de produtos e serviços -->
-          <form action="https://formsubmit.co/your@email.com" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form" source="email" name="form" style="padding: 10px;">
+          <!-- Campo de pesquisa de produtos e serviços -->      
+          <form class="u-clearfix u-form-horizontal u-form-spacing-10 u-inner-form" source="email" name="form" style="padding: 10px;">
             <div class="u-form-email u-form-group">
-              <label for="email-87cd" class="u-label">Pesquisa</label>
-              <input type="email" placeholder="Insira o nome de um produto/serviço" id="email-87cd" name="pesquisaProduto" class="u-input u-input-rectangle" required="">
+                <label for="pesquisa-87cd" class="u-label">Busca</label>
+                <input type="text" placeholder="Insira ração seca, úmida, banho ou tosa" id="pesquisa-87cd" name="pesquisaProduto" class="u-input u-input-rectangle" required="">
             </div>
             <div class="u-align-left u-form-group u-form-submit">
-              <a href="#" class="u-btn u-btn-submit u-button-style">Enviar</a>
-              <input type="submit" value="submit" class="u-form-control-hidden">
+                <button type="button" class="u-btn u-btn-submit u-button-style" id="pesquisarBtn">Buscar</button>
             </div>
-            <div class="u-form-send-message u-form-send-success"> Obrigado! A sua mensagem foi enviada. </div>
-            <div class="u-form-send-error u-form-send-message"> Não foi possível enviar a sua mensagem. Por favor, corrija os erros e tente novamente. </div>
-            <input type="hidden" value="" name="recaptchaResponse">
-            <input type="hidden" name="formServices" value="a5bcf4ac-2481-fbe3-2710-bc9a2fda25cc">
           </form>
         </div>
       </div>
     </section>
+  </div>
     <!-- Seção Login e Agendamento de Serviços -->
     <section class="u-clearfix u-section-4" id="sec-853c">
       <div class="u-clearfix u-sheet u-sheet-1">
@@ -240,40 +238,45 @@ porte<br>
               <div class="u-align-center u-container-style u-layout-cell u-left-cell u-palette-1-light-3 u-size-30 u-size-xs-60 u-layout-cell-1" src="">
                 <div class="u-container-layout u-valign-bottom u-container-layout-1">
                   <h4 class="u-align-center u-custom-font u-font-lobster u-text u-text-default u-text-palette-2-light-1 u-text-1">Faça seu login</h4>
-                  <div class="u-form u-form-1">
-                    <form action="https://formsubmit.co/your@email.com" method="POST"class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="Login" style="padding: 10px;">
+                  <div class="u-form u-form-1 formularios-atualizar-action">
+                    <form method="POST"class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="Login" style="padding: 10px;">
                       <div class="u-form-email u-form-group">
                         <label for="name-f836" class="u-label">Usuário</label>
                         <input type="email" placeholder="Insira seu e-mail" id="name-f836" name="loginUsuario" class="u-input u-input-rectangle" required="required">
+                        <input type="hidden" name="_captcha" value="false">
                       </div>
                       <div class="u-form-group">
-                        <label for="email-f836" class="u-label">Senha</label>
-                        <input type="text" placeholder="Insira sua senha" id="email-f836" name="email" class="u-input u-input-rectangle" required="required">
+                        <label for="password-f836" class="u-label">Senha</label>
+                        <input type="password" placeholder="Insira sua senha" id="password-f836" name="senha" class="u-input u-input-rectangle" required="required">
+                        <!-- <input type="text" placeholder="Insira sua senha" id="email-f836" name="email" class="u-input u-input-rectangle" required="required"> -->
                       </div>
                       <div class="u-form-checkbox u-form-group u-form-group-3">
                         <input type="checkbox" id="checkbox-08cb" name="checkbox" value="On" class="u-field-input">
                         <label for="checkbox-08cb" class="u-field-label">Recuperar Senha</label>
+                      
                       </div>
                       <div class="u-align-left u-form-group u-form-submit">
-                        <a href="#" class="u-btn u-btn-submit u-button-style">Enviar</a>
+                        <a href="#" class="u-btn u-btn-submit u-button-style" onclick="atualizarAction();">Enviar</a>
                         <input type="submit" value="submit" class="u-form-control-hidden">
                       </div>
-                      <div class="u-form-send-message u-form-send-success"> Obrigado! A sua mensagem foi enviada. </div>
-                      <div class="u-form-send-error u-form-send-message"> Não foi possível enviar a sua mensagem. Por favor, corrija os erros e tente novamente. </div>
+                      
+                      <!-- <div class="u-form-send-message u-form-send-success"> Obrigado! A sua mensagem foi enviada. </div> -->
+                      <div class="u-form-send-error u-form-send-message"> Formulário de Login enviado para o e-mail que você informou no campo "Usuário". Para receber o formulário, verifique seu e-mail e, na mensagem enviada pelo serviço Formsubmit, clique em "Activate Form", caso ainda não o tenha ativado. Se a mensagem não tiver chegado, verifique sua caixa de Spam.</div>
                       <input type="hidden" value="" name="recaptchaResponse">
-                      <input type="hidden" name="formServices" value="a5bcf4ac-2481-fbe3-2710-bc9a2fda25cc">
+                      <!-- <input type="hidden" name="formServices" value="a5bcf4ac-2481-fbe3-2710-bc9a2fda25cc"> -->
                     </form>
                   </div>
                   <h4 class="u-align-center u-custom-font u-font-lobster u-text u-text-default u-text-palette-2-light-1 u-text-2">Agende seu serviço</h4>
-                  <div class="u-form u-form-2">
-                    <form action="https://formsubmit.co/your@email.com" method="POST"class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="servicoAgenda" style="padding: 10px;">
+                  <div class="u-form u-form-2 formularios-atualizar-action">
+                    <form method="POST"class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="servicoAgenda" style="padding: 10px;">
                       <div class="u-form-group">
                         <label for="name-f836" class="u-label">Nome do Tutor</label>
                         <input type="text" placeholder="Nome do Tutor" id="name-f836" name="tutorAgenda" class="u-input u-input-rectangle" required="required">
+                        <input type="hidden" name="_captcha" value="false">
                       </div>
                       <div class="u-form-group">
-                        <label for="email-f836" class="u-label">Nome do Pet</label>
-                        <input type="text" placeholder="Nome do Pet" id="email-f836" name="petAgenda" class="u-input u-input-rectangle" required="required">
+                        <label for="name-f836b" class="u-label">Nome do Pet</label>
+                        <input type="text" placeholder="Nome do Pet" id="name-f836b" name="petAgenda" class="u-input u-input-rectangle" required="required">
                       </div>
                       <div class="u-form-group u-form-group-7">
                         <label for="text-c35a" class="u-label">Serviço</label>
@@ -288,13 +291,13 @@ porte<br>
                         <label for="checkbox-75f2" class="u-field-label">Quero tele-busca</label>
                       </div>
                       <div class="u-align-left u-form-group u-form-submit">
-                        <a href="#" class="u-btn u-btn-submit u-button-style">Enviar</a>
+                        <a href="#" class="u-btn u-btn-submit u-button-style" onclick="atualizarAction();">Enviar</a>
                         <input type="submit" value="submit" class="u-form-control-hidden">
                       </div>
-                      <div class="u-form-send-message u-form-send-success"> Obrigado! A sua mensagem foi enviada. </div>
-                      <div class="u-form-send-error u-form-send-message"> Não foi possível enviar a sua mensagem. Por favor, corrija os erros e tente novamente. </div>
+                      <!-- <div class="u-form-send-message u-form-send-success"> Obrigado! A sua mensagem foi enviada. </div> -->
+                      <div class="u-form-send-error u-form-send-message"> Formulário de agendamento de serviço enviado para o e-mail que você informou no Login ou Cadastro de Cliente. Para receber o formulário, verifique seu e-mail e, na mensagem enviada pelo serviço Formsubmit, clique em "Activate Form", caso ainda não o tenha ativado. Se a mensagem não tiver chegado, verifique sua caixa de Spam. </div>
                       <input type="hidden" value="" name="recaptchaResponse">
-                      <input type="hidden" name="formServices" value="a5bcf4ac-2481-fbe3-2710-bc9a2fda25cc">
+                      <!-- <input type="hidden" name="formServices" value="a5bcf4ac-2481-fbe3-2710-bc9a2fda25cc"> -->
                     </form>
                   </div>
                 </div>
@@ -307,7 +310,8 @@ porte<br>
         </div>
       </div>
     </section>
-    <!-- Seção "Cadastro do Tutor" -->
+
+    <!-- Seção "Cadastro do Cliente" -->
     <section class="u-align-center u-clearfix u-section-5" id="sec-761f">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-0 u-layout-wrap u-layout-wrap-1">
@@ -318,12 +322,13 @@ porte<br>
               </div>
               <div class="u-align-left u-container-style u-layout-cell u-palette-3-light-3 u-right-cell u-size-30 u-size-xs-60 u-layout-cell-2">
                 <div class="u-container-layout u-container-layout-2">
-                  <h4 class="u-align-center u-custom-font u-font-lobster u-text u-text-default u-text-palette-1-dark-1 u-text-1">Cadastro do Tutor</h4>
-                  <div class="u-form u-form-1">
-                    <form action="https://formsubmit.co/your@email.com" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="tutorCadastro" style="padding: 10px;">
+                  <h4 class="u-align-center u-custom-font u-font-lobster u-text u-text-default u-text-palette-1-dark-1 u-text-1">Cadastro do Cliente</h4>
+                  <div class="u-form u-form-1 formularios-atualizar-action">
+                    <form method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="tutorCadastro" style="padding: 10px;">
                       <div class="u-form-group">
-                        <label for="name-f836" class="u-label">Nome do Tutor</label>
-                        <input type="text" placeholder="Nome do Tutor" id="name-f836" name="tutorCadastro" class="u-input u-input-rectangle" required="required">
+                        <label for="name-f836" class="u-label">Nome do Tutor do Pet</label>
+                        <input type="text" placeholder="Nome do Tutor do Pet" id="name-f836" name="tutorCadastro" class="u-input u-input-rectangle" required="required">
+                        <input type="hidden" name="_captcha" value="false">
                       </div>
                       <div class="u-form-email u-form-group">
                         <label for="email-f836" class="u-label">E-mail</label>
@@ -331,24 +336,24 @@ porte<br>
                       </div>
                       <div class="u-form-group u-form-phone u-form-group-3">
                         <label for="text-c35a" class="u-label">Senha</label>
-                        <input type="tel" placeholder="Senha" id="text-c35a" name="senhaCadastro" class="u-input u-input-rectangle" required="required">
+                        <input type="password" placeholder="Senha" id="text-c35a" name="senhaCadastro" class="u-input u-input-rectangle" required="required">
                       </div>
                       <div class="u-form-group u-form-group-4">
                         <label for="text-057c" class="u-label">Telefone</label>
-                        <input type="text" placeholder="Telefone" id="text-057c" name="telefoneCadastro" class="u-input u-input-rectangle" required="required">
+                        <input type="tel" placeholder="Telefone" id="text-057c" name="telefoneCadastro" class="u-input u-input-rectangle" required="required">
                       </div>
                       <div class="u-form-group u-form-group-5">
                         <label for="text-0a6e" class="u-label">Endereço</label>
                         <input type="text" placeholder="Endereço" id="text-0a6e" name="enderecoCadastro" class="u-input u-input-rectangle" required="required">
                       </div>
                       <div class="u-align-left u-form-group u-form-submit">
-                        <a href="#" class="u-btn u-btn-submit u-button-style">Enviar</a>
+                        <a href="#" class="u-btn u-btn-submit u-button-style" onclick="atualizarAction();">Enviar</a>
                         <input type="submit" value="submit" class="u-form-control-hidden">
                       </div>
-                      <div class="u-form-send-message u-form-send-success"> Obrigado! A sua mensagem foi enviada. </div>
-                      <div class="u-form-send-error u-form-send-message"> Não foi possível enviar a sua mensagem. Por favor, corrija os erros e tente novamente. </div>
+                      <!-- <div class="u-form-send-message u-form-send-success"> Obrigado! A sua mensagem foi enviada. </div> -->
+                      <div class="u-form-send-error u-form-send-message"> Formulário de cadastro enviado para o e-mail que você informou. Para receber o formulário, verifique seu e-mail e, na mensagem enviada pelo serviço Formsubmit, clique em "Activate Form", caso ainda não o tenha ativado. Se a mensagem não tiver chegado, verifique sua caixa de Spam. </div>
                       <input type="hidden" value="" name="recaptchaResponse">
-                      <input type="hidden" name="formServices" value="a5bcf4ac-2481-fbe3-2710-bc9a2fda25cc">
+                      <!-- <input type="hidden" name="formServices" value="a5bcf4ac-2481-fbe3-2710-bc9a2fda25cc"> -->
                     </form>
                   </div>
                 </div>
@@ -358,6 +363,7 @@ porte<br>
         </div>
       </div>
     </section>
+
     <!-- Seção "Cadastro do Pet" -->
     <section class="u-clearfix u-white u-section-6" id="sec-9b50">
       <div class="u-clearfix u-sheet u-sheet-1">
@@ -367,36 +373,37 @@ porte<br>
               <div class="u-align-center u-container-style u-layout-cell u-left-cell u-palette-1-light-3 u-size-30 u-size-xs-60 u-layout-cell-1" src="">
                 <div class="u-container-layout u-container-layout-1">
                   <h4 class="u-align-center u-custom-font u-font-lobster u-text u-text-default u-text-palette-2-light-1 u-text-1">Cadastro do Pet</h4>
-                  <div class="u-form u-form-1">
-                    <form action="https://formsubmit.co/your@email.com" method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="petCadastro" style="padding: 10px;">
+                  <div class="u-form u-form-1 formularios-atualizar-action">
+                    <form method="POST" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" source="email" name="petCadastro" style="padding: 10px;">
                       <div class="u-form-group">
                         <label for="name-f836" class="u-label">Nome do Tutor</label>
                         <input type="text" placeholder="Nome do Tutor" id="name-f836" name="tutorPetCadastro" class="u-input u-input-rectangle" required="required">
+                        <input type="hidden" name="_captcha" value="false">
                       </div>
                       <div class="u-form-group">
-                        <label for="email-f836" class="u-label">Nome do Pet</label>
-                        <input type="text" placeholder="Nome do Pet" id="email-f836" name="nomePetCadastro" class="u-input u-input-rectangle" required="required">
+                        <label for="name-836c" class="u-label">Nome do Pet</label>
+                        <input type="text" placeholder="Nome do Pet" id="name-836c" name="nomePetCadastro" class="u-input u-input-rectangle" required="required">
                       </div>
                       <div class="u-form-group u-form-group-3">
                         <label for="text-c35a" class="u-label">Tipo</label>
                         <input type="text" placeholder="Tipo" id="text-c35a" name="tipoPetCadastro" class="u-input u-input-rectangle" required="required">
                       </div>
                       <div class="u-form-group u-form-group-4">
-                        <label for="text-057c" class="u-label">Temperamento</label>
+                        <label for="text-057c" class="u-label">Raça</label>
                         <input type="text" placeholder="Raça" id="text-057c" name="racaPetCadastro" class="u-input u-input-rectangle" required="required">
                       </div>
                       <div class="u-form-group u-form-group-5">
-                        <label for="text-0a6e" class="u-label">Endereço</label>
+                        <label for="text-0a6e" class="u-label">Temperamento</label>
                         <input type="text" placeholder="Temperamento" id="text-0a6e" name="temperamentoPetCadastro" class="u-input u-input-rectangle" required="required">
                       </div>
                       <div class="u-align-left u-form-group u-form-submit">
-                        <a href="#" class="u-btn u-btn-submit u-button-style">Enviar</a>
+                        <a href="#" class="u-btn u-btn-submit u-button-style" onclick="atualizarAction();">Enviar</a>
                         <input type="submit" value="submit" class="u-form-control-hidden">
                       </div>
-                      <div class="u-form-send-message u-form-send-success"> Obrigado! A sua mensagem foi enviada. </div>
-                      <div class="u-form-send-error u-form-send-message"> Não foi possível enviar a sua mensagem. Por favor, corrija os erros e tente novamente. </div>
+                      <!-- <div class="u-form-send-message u-form-send-success"> Obrigado! A sua mensagem foi enviada. </div> -->
+                      <div class="u-form-send-error u-form-send-message"> Formulário de cadastro do seu Pet enviado para o e-mail que você informou no Login ou Cadastro de Cliente. Para receber o formulário, verifique seu e-mail e, na mensagem enviada pelo serviço Formsubmit, clique em "Activate Form", caso ainda não o tenha ativado. Se a mensagem não tiver chegado, verifique sua caixa de Spam. </div>
                       <input type="hidden" value="" name="recaptchaResponse">
-                      <input type="hidden" name="formServices" value="a5bcf4ac-2481-fbe3-2710-bc9a2fda25cc">
+                      <!-- <input type="hidden" name="formServices" value="a5bcf4ac-2481-fbe3-2710-bc9a2fda25cc"> -->
                     </form>
                   </div>
                 </div>
@@ -409,6 +416,7 @@ porte<br>
         </div>
       </div>
     </section>
+
     <!-- Seção "Depoimentos" -->
     <section class="u-clearfix u-palette-3-light-3 u-section-7" id="sec-9a16">
       <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
@@ -450,8 +458,7 @@ que eu mais gosto"</p>
     <section class="u-clearfix u-section-8" id="sec-d546">
       <div class="u-clearfix u-sheet u-sheet-1"></div>
     </section>
-    
-    
+        
     <!-- Footer - Rodapé -->
     <footer class="u-align-center u-clearfix u-footer u-palette-1-dark-1 u-footer" id="sec-2f07"><div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-expanded-width u-list u-list-1">
@@ -481,15 +488,75 @@ Cohama, São Luís, MA</p>
         </div>
       </div></footer>
     <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Template</span>
+      <p class="u-text">
+        <span>Website desenvolvido por Hayleno Hossoé - Foram utilizadas </span>
+      </p>
+      <p class="u-text">
+        <span> imagens do </span>
+      </p>
+      <a class="u-link" href="https://www.canva.com/" target="_blank">
+        <span>Canva.com</span>
       </a>
       <p class="u-text">
-        <span>created with</span>
+        <span> e </span>
+      </p>
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">       
+        <span>template</span>
+      </a>
+      <p class="u-text">
+        <span>do</span>
       </p>
       <a class="u-link" href="https://nicepage.cloud" target="_blank">
-        <span>Best Website Builder</span>
-      </a>. 
+        <span>Nicepage.com</span>
+      </a>.            
     </section>
-  
+
 </body></html>
+
+
+     <!-- SCRIPT DA BUSCA FUNCIONANDO -->
+     <script>
+      document.getElementById("pesquisarBtn").addEventListener("click", pesquisarProdutos);
+
+      function pesquisarProdutos() {
+          var termoPesquisa = document.getElementById("pesquisa-87cd").value.toLowerCase();
+          var produtos = document.querySelectorAll(".u-repeater-item");
+  
+          produtos.forEach(function (produto) {
+              var textoProduto = produto.textContent.toLowerCase();
+              
+              if (textoProduto.includes(termoPesquisa)) {
+                  produto.style.display = "block";
+              } else {
+                  produto.style.display = "none";
+              }
+          });
+      }
+  </script>
+
+<!-- SCRIPT PARA ENVIO DO FORMULÁRIO FUNCIONANDO -->
+<script>
+function atualizarAction() {
+  var emailCadastro = document.getElementById("email-f836").value;
+  var emailLogin = document.getElementById("name-f836").value;
+  var outrosFormularios = document.querySelectorAll(".formularios-atualizar-action form");
+  if (emailLogin) {
+    emailCadastro = emailLogin;
+  }
+
+  outrosFormularios.forEach(function (formulario) {
+    var emailFormulario = formulario.querySelector('input[type="email"]'); 
+    if (emailFormulario) {
+      formulario.action = "https://formsubmit.co/" + emailFormulario.value;
+    } else {
+      formulario.action = "https://formsubmit.co/" + emailCadastro;
+    }
+  });
+
+}
+  document.querySelector(".formularios-atualizar-action form").addEventListener("submit", function (event) {
+  event.preventDefault();
+  atualizarAction();
+});
+
+</script>
