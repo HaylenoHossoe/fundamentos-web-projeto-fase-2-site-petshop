@@ -32,7 +32,7 @@ em seu navegador e testar suas funcionalidades.
 	"Serviço", "Data", "Quero tele-busca" e um botão "Enviar".
 
 	* IMPORTANTE *
-	Estes formuários, assim como os demais da página, são enviados para o e-mail
+	Estes formulários, assim como os demais da página, são enviados para o e-mail
 	que o usuário informou no campo "Usuário" do Login ou no campo "E-mail" do
 	Cadastro do Cliente, utilizando o serviço Formsubmit. Veja as instruções no
 	final deste arquivo de ajuda para enviar os formulários corretamente para seu e-mail.
@@ -66,7 +66,7 @@ em seu navegador e testar suas funcionalidades.
 	Em seguida, abra o arquivo Página-Inicial.html no seu VS Code e, no canto inferior direito,
 	clique na opção "Go Live", que abrirá a página web do petshop no seu browser de internet.
 	Dessa forma, você pode utilizar todas as funcionalidades da página do petshop e enviar
-	os formuláros preenchidos para o seu e-mail.
+	os formulários preenchidos para o seu e-mail.
 
 	Todos os formulários da página são enviados para o e-mail que o usuário informou
 	no campo "Usuário" do Login ou no campo "E-mail" do Cadastro do Cliente.
